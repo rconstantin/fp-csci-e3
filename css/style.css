@@ -1,0 +1,199 @@
+
+body{
+      font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+      font-size:12px;
+      color: #1b1d26;
+}
+
+form{
+      position: relative;
+      top: 28px;
+      float: left;
+      left: 20px;
+      margin:0 auto;
+      width:400px;
+      padding:14px;
+      background-color: lightblue;
+      border:solid 2px ;
+      margin-top: 100px;
+}
+#pwd3 {
+    display: none;
+}
+.fieldset {
+     background-color: white;
+     border: solid 1px #26261F;
+     text-align: center;
+}
+.custom {
+      padding: 2px;
+      font-weight: bold;
+      color:red;
+}
+ label{
+      display:block;
+      font-weight:bold;
+      text-align:right;
+      width:120px;
+      float:left;
+      padding: 13px 0 10px 0px;
+      margin: -5px 0 8px 0px;
+}
+ 
+ select, input {
+      float:right;
+      font-size:12px;
+      padding:3px 2px;
+      border:solid 1px #BFBD9F;
+      width:200px;
+      margin:2px 0 20px 10px;
+}
+ 
+#submit{
+      clear:both;
+      margin-left:150px;
+      width:125px;
+      height:31px;
+      background: orange;
+      text-align:center;
+      line-height:20px;
+      color:#000000;
+      font-size:12px;
+      font-weight:bold;
+}
+#output, #output1 {
+      position: absolute;
+      top: 80px;
+      left: 525px;
+      height: auto;
+      clear:both;
+      color: blue;
+      margin:0 auto;
+      width:auto;
+      padding:14px;
+      background-color: rgb(212, 215, 217);
+      border:solid 2px ;
+      margin-top: 100px;
+}
+#container {
+      /*position: absolute;
+      width: 1200px;*/
+      height: auto;
+      left: 20px;
+}
+table, th {
+     border: 1px solid black;
+     text-align: center;
+}
+td {
+      padding-bottom: 2px;
+}
+#theForm {
+
+}
+#theFilm {
+    position: absolute;
+    margin-top: 357px;
+    margin-left: 8px;
+}
+#theHeader {
+  height: 44px;
+  background: #D7AB4D;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+#aboutme {
+    float: right;
+    border: 1px solid green;
+    position: relative;
+    background: white;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+}
+#helpme {
+    float: left;
+    border: 1px solid green;
+    position: relative;
+    background-color: white;
+    padding: 12px;
+    cursor: pointer;
+    display: block;
+}
+#detailedInfo {
+    float: right;
+    border: 1px solid green;
+    background-color: white;
+    height: auto;
+    width: auto;
+    display: none;
+}
+#projectInfo {
+    display: none;
+    background-color: white;
+}
+button {
+    padding: 4px;
+    margin-right: 25px;
+}
+.long {
+      width: 348px;
+}
+.hint {
+  display:none;
+  color:red;
+  float: left;
+}
+#confirming {
+    display:none;
+}
+#aboutYou {
+    display:none;
+}
+.hidden{
+    display:none;
+    width: 26em;
+    border: 1px solid green;
+    padding: 1em;
+}
+#helper, #helper1 {
+    position: fixed;
+    top: 143px;
+    left: 600px;
+    width: 17em;
+    height: 10px;
+    border: 1px solid green;
+    padding: 1em;
+    background-color: yellow;
+}
+#nextBiohelper {
+    position: fixed;
+    top: 123px;
+    left: 130px;
+    width: 23em;
+    height: 30px;
+    border: 1px solid green;
+    padding: 1em;
+    background-color: yellow;
+}
+table, th, tr {
+     border: 1px solid black;
+     text-align: center;
+}
+td {
+      padding-bottom: 2px;
+      border: 1px solid;
+}
+
+.structure.topnav {
+  background-color: #1f3136;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  z-index: 311;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  min-width: 1024px;
+}

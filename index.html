@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+      <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>CSCI E-3 Final Project - Film Collector</title>
+            <link rel="stylesheet" href="css/style.css">
+            <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+            <script type="text/javascript" src="js/jquery.xdomainajax.js"></script>
+            <script type="text/javascript" src="js/final_proj.js"></script>
+      </head>
+      <body>
+            <header id='theHeader'>CSCI E-3 Final Project - Film Collector
+                <div id="aboutme"></div>
+                <div id="helpme">ReadMe</div>
+            </header>
+            <div id="container">
+                  <div id="detailedInfo"></div>
+                  <form action="#" id="theForm" name="theForm" autocomplete="off">
+                        <fieldset id="theLogin" class="fieldset">
+                              <legend class="custom">Login Info</legend>
+                              <div>
+                                    <label for="username">User Name</label>
+                                    <input size="30" placeholder="username" name="username" id="username" type="text"> <span class="hint" id="unameHint">Username
+                              is too short (must be at least 3 characters)</span>
+                              </div>
+                              <div>
+                                    <label for="pwd1">Password</label>
+                                    <input size="30" required="required" placeholder="password" name="pwd1" id="pwd1" type="password"> <span class="hint" id="pwd1Hint">Password is too short (must be at least 8 characters)</span> <span class="hint" id="pwd1Hint1">Password Does not match existing UserName (must be at least 8 characters)</span>
+                              </div>
+                              <div id="confirming">
+                                    <label for="pwd2">Confirm Password</label>
+                                    <input size="30" required="required" placeholder="confirm password" name="pwd2" id="pwd2" type="password"> <span class="hint" id="pwd2Hint">Passwords don't match</span>
+                              </div>
+                        </fieldset>
+                        <br> 
+                        <fieldset id="aboutYou" class="fieldset">
+                              <legend class="custom">About You</legend>
+                              <div>
+                                    <label for="email">Email</label>
+                                    <input size="30" placeholder="Email Address" name="email" id="email" type="text">
+                              </div>
+                              <div>
+                                    <label for="address">Street Address</label>
+                                    <input size="30" placeholder="Street Address" name="address" id="address" type="text">
+                              </div>
+                              <div>
+                                    <label for"zip">Zip or Postal Code</label>
+                                    <input placeholder="Postal Code" name="zip" id="zip" type="text">
+                              </div>
+                              <button type="button" name="button" id='saveProfile'>Save Profile</button>
+                        </fieldset>
+                        <br>
+                        <fieldset class="fieldset">
+                              <legend class="custom">Film Enquiry</legend>
+                              <!--Actor/Director Name:<br> <input placeholder="Actor Full Name" name="actor" id="actor" type="text"><br>-->
+                              <div>
+                                    <label for="film">Film Title</label><input placeholder="Film Title" type="text" name="film" id="film" required>
+                              </div>
+                              <br>
+                              <fieldset class='long'>
+                                    <button type="button" name="button" id='saveInfo'>Save Info</button>
+                                    <button type="button" name="button" id='bio'>Next Bio</button>
+                                    <button type="button" name="button" id='clearbio'>Clear Bio</button>                
+                              </fieldset>
+                        </fieldset>
+                  </form>
+                  <br>
+                  <div id="output1" class='hidden'>
+                        <fieldset class='fieldset'><legend>My Film Collection </legend> 
+                              <div id="record">
+                                    <table id="filmTable">
+                                          <tr>
+                                                <th>Title</th>
+                                                <th>Director(s)</th>
+                                                <th>Actor(s)</th>                                 
+                                                <th>Genre</th>
+                                                <th>Year</th>
+                                                <!--<th>Trailer</th>-->
+                                          </tr>
+                                    </table>
+                              </div>
+                        </fieldset>
+                  </div>
+                  <div id="helper" class="hidden">Click Me to display Brief Bio</div>
+                  <div id="helper1" class="hidden">Click Me to display Film Overview</div>
+                  <div id="nextBiohelper" class="hidden">Demonstrating  the power of JS Closure By cycling through bios of latest film enquiry</div>
+                  <div id="output" class="hidden"></div>
+            </div>
+            <div id="projectInfo">
+                  <h2> Final Project for CSCI E-3 : Film Collector</h2>
+                  <h3>Summary</h3>
+                  <ol>
+                        <li> Form validation for User Login and home address completion
+                              <ul>
+                                    <li>username and passwords are required</li>
+                                    <li>email address is optional but if entered it will be validated for correct pattern</li>
+                                    <li>postal address is optional but the zip code becomes mandatory if a street name is entered</li>
+                                    <li>the address is completed via the Google GEO API </li>
+                              </ul>
+                        <li> Film/TV shows Enquiry: collection and displaying plot overview and Bio's actors & directors</li>
+                        <li> Utilizing LocalStorage capability to store user login info and per user Film Data (title, director, actors, etc)</li>
+                        <li> Using AJAX and a AJAX cross domain sharing plugin to call IMDB.com api to collect and scrape pages</li>
+                        <li> run from localhost or a web server preferred to avoid loading errors. Latest version at fpe3.silvousplais.biz.</li>
+                        <li> Browsers Support: Chrome, Firefox & Safari</li>
+                        <li>No mobile/iPad support: Limited the development to tools learned in CSCI E-3 (no Mobile jQuery, Bootstrap, etc)</li>
+                  </ol>
+                  <h3> This Final Project Met the following Requirements:</h3>
+                  <h4> Form Validation/Improved user experience </h4>
+                  <p>Form Validation and (hopefully) improved User Experience: Show/Hide form fields as part of validation
+                   logic. For example: start with username and password 1, if both have a valid range, show the confirm
+                  password for new users. If user already registered, display uname at top right and retrieve his/her
+                  Film List for display.</p>
+                  <p>For new users that pass the username/password validation, display next login info block: email/address
+                  input fields... email is optional but needs to be validated against a valid pattern
+                  Address is optional but ZIP code is required if a street name is entered. the rest of address is generated
+                  using google geo API.</p>
+        
+                  <h4>Capturing and handling events</h4>
+                  <p>Event handling is used throughout for both user login functionality and Film Info display</p>
+        
+                 <h4> DOM Manipulation and element creation</h4>
+                  <p>Film Display Table uses DOM element creation to dynamically create rows for new saved films</p>
+         
+                 <h4>Closures</h4>
+                  <p>Used in the $('#bio').click((function() {} to circulate through displaying BIO for the different Film
+                  Directors and Actors of the latest Film Enquiry</p>
+         
+                  <h4>AJAX</h4>
+                  <p>AJAX is heavily used to collect address information (Google GEO API) and Film Info (IMDB API).
+                    To avoid cross origin request blocked problems, I decided to use the YQL Proxy where all the AJAX requests/responses go through YQL (<a href="https://developer.yahoo.com/yql" target="_blank">Go to YQL</a>). To do that, a simple jQuery cross domain plugin (<a href="http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/" target="_blank">xdomain plugin</a>) was adopted for this</p>
+            </div>
+      </body>
+</html>
