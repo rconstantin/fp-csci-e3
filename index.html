@@ -100,7 +100,8 @@
                         <li> Film/TV shows Enquiry: collection and displaying plot overview and Bio's actors & directors</li>
                         <li> Utilizing LocalStorage capability to store user login info and per user Film Data (title, director, actors, etc)</li>
                         <li> Using AJAX and a AJAX cross domain sharing plugin to call IMDB.com api to collect and scrape pages</li>
-                        <li> run from localhost or a web server preferred to avoid loading errors. Latest version at fpe3.silvousplais.biz.</li>
+                        <li> run it from localhost or plain old file system. gh-pages running version is at http://rconstantin.github.io/fp-csci-e3 (<a href="http://rconstantin.github.io/fp-csci-e3" target="_blank">film-collector</a>)</li>
+                        <li> Note: Cannot run the app using HTTPS because the IMDB API only supports HTTP at the current time</li>
                         <li> Browsers Support: Chrome, Firefox & Safari</li>
                         <li>No mobile/iPad support: Limited the development to tools learned in CSCI E-3 (no Mobile jQuery, Bootstrap, etc)</li>
                   </ol>
@@ -128,6 +129,35 @@
                   <h4>AJAX</h4>
                   <p>AJAX is heavily used to collect address information (Google GEO API) and Film Info (IMDB API).
                     To avoid cross origin request blocked problems, I decided to use the YQL Proxy where all the AJAX requests/responses go through YQL (<a href="https://developer.yahoo.com/yql" target="_blank">Go to YQL</a>). To do that, a simple jQuery cross domain plugin (<a href="http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/" target="_blank">xdomain plugin</a>) was adopted for this</p>
+                  <h4> High Level Design</h4>
+                  <h5>Film Collection Section</h5>
+                  <ol>
+                        <li> Movie: ajax from imdb's api: "http://www.imdbapi.com/?t=" + $(title).text() with title as input.</li>
+                        <ul>
+                              <li>display key info about the movie: director, lead actor(s), year, etc.</li>
+                              <li>Save Film Info per User (needs login) in a Movie Collection Table.</li>
+                        </ul>
+                        <li>http://www.imdb.com/xml/find?json=1&nr=1&nm=on&q=firstname+lastname to get Person of Interest POI-ID.</li>
+                        <li>given the ID use: http://www.imdb.com/name/<POI-ID>/bio to get the bio info.
+                              <ul><li>example: http://www.imdb.com/name/nm0000149/bio (for Jodi Foster)</li></ul>
+                        </li>
+                        <li>traverse DOM and display only relevant info. Remove unwanted links & image sources</li>
+                        <li>Future Enhancement: Film trailer. Either embed or store a link to show trailer on new window</li>
+                        <li>use localstorage to store movie info per user</li>
+                  </ol>
+                  <h5>User Login & Profile Section</h5>
+                  <ol>
+                        <li>Enhanced User Experience by Show/Hide fields to enter. Once Validated, move to the next set of fields</li>
+                        <li> once a username/password are accepted, the username will show up at the top right</li>
+                        <li> by clicking on the username, the detailed profile will show up and allow for other options
+                              <ul>
+                                    <li> click on "update profile" to make changes to email or postal address</li>
+                                    <li> click on "switch user" to login as a another user</li>
+                              </ul>
+                        </li>
+                        <li>For simplicity of the design, once the username & password are validated, they cannot be changed</li>
+                        <li>user info will be stored in localStorage</li>
+                  </ol>
             </div>
       </body>
 </html>
