@@ -769,8 +769,15 @@ $(document).ready(function(){
                         $('#output').removeClass('hidden');
                         $('#output1').addClass('hidden');
                         var c = $(data.responseText);
+                        var img = $(c).find('img');
+                        img.each(function(){
+                            //clear unwanted images
+                            if (this.src.indexOf('/images/nopicture') > 0) {
+                                  this.src = '';
+                            }
+                        });
                         content1 = $(c).find('div#name-overview-widget');
-                        var a = $(content1).find('a');
+                         var a = $(content1).find('a');
                         //console.log(a);
                         a.each(function(){
                                 this.href = '#'; //disable the link to to go to imdb. want to stay on here
