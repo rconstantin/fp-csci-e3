@@ -100,10 +100,21 @@
                         <li> Film/TV shows Enquiry: collection and displaying plot overview and Bio's actors & directors</li>
                         <li> Utilizing LocalStorage capability to store user login info and per user Film Data (title, director, actors, etc)</li>
                         <li> Using AJAX and a AJAX cross domain sharing plugin to call IMDB.com api to collect and scrape pages</li>
-                        <li> run it from localhost or plain old file system. gh-pages running version is at http://rconstantin.github.io/fp-csci-e3 (<a href="http://rconstantin.github.io/fp-csci-e3" target="_blank">film-collector</a>)</li>
-                        <li> Note: Cannot run the app using HTTPS because the IMDB API only supports HTTP at the current time</li>
-                        <li> Browsers Support: Chrome, Firefox & Safari</li>
-                        <li>No mobile/iPad support: Limited the development to tools learned in CSCI E-3 (no Mobile jQuery, Bootstrap, etc)</li>
+                        <li>Limited the development to the material we learned in CSCI E-3 (no Mobile jQuery, Bootstrap, etc)</li>
+                  </ol>
+                  <h3>Operational Restrictions/requirements & Browser support</h3>
+                  <ol>
+                        <li> Supports the Latest versions of Chrome, FireFox & Safari (No mobile devices/iPad Support)</li>
+                        <li> installing and running from localhost or plain old file system has no know restrictions.</li>
+                        <li> webserver like gh-pages running version is at http://rconstantin.github.io/fp-csci-e3 (<a href="http://rconstantin.github.io/fp-csci-e3" target="_blank">film-collector</a>)</li>
+                        <li> Need to avoid adding HTTP referrers in the AJAX header request. This causes remote sites to block images to be sent back. PS: HTTPS requests do not include referrers in the request header.
+                        <li> gh-pages supports https but FireFox & Chrome will block Mixed Mode security (the IMDB API only supports HTTP at the current time). <bold>Browser Restrictions to overcome referrer problem:</bold>
+                             <ul>
+                                  <li>Safari: use HTTPS: does allow mixed http modes and runs fine with HTTPS</li>
+                                  <li>Chrome: start chrome from the command line with --no-referrers. On a MAC: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --no-referrers</li>
+                                  <li>Firefox includes a flag to disable referrers in the disable drop down menu or through about:config (network.http.sendSecureXSiteReferrer    false)</li>
+                              </ul>
+                        </li>
                   </ol>
                   <h3> This Final Project Met the following Requirements:</h3>
                   <h4> Form Validation/Improved user experience </h4>
@@ -113,14 +124,14 @@
                   Film List for display.</p>
                   <p>For new users that pass the username/password validation, display next login info block: email/address
                   input fields... email is optional but needs to be validated against a valid pattern
-                  Address is optional but ZIP code is required if a street name is entered. the rest of address is generated
-                  using google geo API.</p>
+                  Address is optional but ZIP code is required if a street name is entered. the rest of the address is generated
+                  using google GEOCODE API.</p>
         
                   <h4>Capturing and handling events</h4>
                   <p>Event handling is used throughout for both user login functionality and Film Info display</p>
         
                  <h4> DOM Manipulation and element creation</h4>
-                  <p>Film Display Table uses DOM element creation to dynamically create rows for new saved films</p>
+                  <p>Film Display Table uses DOM element creation to dynamically create rows for new saved films. DOM Manipulation was also used in extracting Film and Bio overviews from original IMDB pages</p>
          
                  <h4>Closures</h4>
                   <p>Used in the $('#bio').click((function() {} to circulate through displaying BIO for the different Film
