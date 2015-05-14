@@ -735,6 +735,7 @@ $(document).ready(function(){
                               //console.log(a);
                               a.each(function(){
                                       this.href = '#'; //disable the link to to go to imdb. want to stay on here
+                                      this.rel = 'no-referrer';
                               });
                               
                               $(content1).find('div.star-box.giga-star').addClass('hidden');
@@ -775,12 +776,14 @@ $(document).ready(function(){
                             if (this.src.indexOf('/images/nopicture') > 0) {
                                   this.src = '';
                             }
+                            this.rel = 'no-referrer';
                         });
                         content1 = $(c).find('div#name-overview-widget');
                          var a = $(content1).find('a');
                         //console.log(a);
                         a.each(function(){
                                 this.href = '#'; //disable the link to to go to imdb. want to stay on here
+                                this.rel = 'no-referrer';
                         });
                         $('#output').append(content1);
                   }
